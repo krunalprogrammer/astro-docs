@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Saasdesk (Astro) Docs</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<style>
+  /* Mobile sidebar drawer: hidden off-canvas until .is-open is toggled by the vanilla JS below. */
+  @media (max-width: 767px) {
+    #sidebar {
+      position: fixed;
+      inset: 0 25% 0 0;
+      transform: translateX(-100%);
+      transition: transform 250ms ease;
+      z-index: 40;
+      overflow-y: auto;
+    }
+    #sidebar.is-open {
+      transform: translateX(0);
+    }
+    #sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.4);
+      z-index: 30;
+    }
+    #sidebar-overlay.is-open {
+      display: block;
+    }
+  }
+</style>
+</head>
+<body class="bg-white text-slate-800">
+
+  <!-- Top navbar -->
+  <header class="sticky top-0 z-50 bg-white border-b border-slate-200">
+    <div class="max-w-[1400px] mx-auto flex items-center justify-between px-4 py-3">
+      <div class="flex items-center gap-3">
+        <button id="menu-toggle" class="md:hidden inline-flex flex-col justify-center gap-1 w-8 h-8" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">
+          <span class="block h-0.5 w-5 bg-slate-700"></span>
+          <span class="block h-0.5 w-5 bg-slate-700"></span>
+          <span class="block h-0.5 w-5 bg-slate-700"></span>
+        </button>
+        <span class="font-semibold text-lg">Saasdesk <span class="text-slate-400 font-normal">/ Astro Docs</span></span>
+      </div>
+      <nav class="flex items-center gap-4 text-sm">
+        <a href="../index.html" class="text-slate-600 hover:text-slate-900">All templates</a>
+      </nav>
+    </div>
+  </header>
+
+  <div id="sidebar-overlay"></div>
+
+  <div class="max-w-[1400px] mx-auto flex">
+
+    <!-- Left sidebar -->
+    <aside id="sidebar" class="w-64 shrink-0 border-r border-slate-200 bg-white hidden md:block">
+      <nav class="p-5 text-sm space-y-8 sticky top-14">
+        <div>
+          <p class="font-semibold text-slate-900 mb-2">On this page</p>
+          <ul class="space-y-1.5 text-slate-600">
+            <li><a href="#overview" class="hover:text-slate-900">Overview</a></li>
+            <li><a href="#included-pages" class="hover:text-slate-900">Included pages</a></li>
+            <li><a href="#different" class="hover:text-slate-900">What makes it different</a></li>
+            <li><a href="#next" class="hover:text-slate-900">What's next</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-semibold text-slate-900 mb-2">Templates</p>
+          <ul class="space-y-1.5 text-slate-600">
+            <li><a href="./index.html" class="text-slate-900 font-medium">Saasdesk (Astro)</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="flex-1 min-w-0 px-4 sm:px-8 py-10 prose prose-slate max-w-3xl">
+      <h1 id="overview">Saasdesk (Astro)</h1>
+      <p>
+        Saasdesk is a marketing site for a payroll &amp; HR product, built around a bright, pastel-accented
+        SaaS/startup layout — a hero with a product screenshot, a benefits strip, a feature grid, use-case
+        blocks, a testimonial, integrations, a client-review carousel, tiered pricing, and an FAQ accordion,
+        rounded out with login/signup utility pages.
+      </p>
+
+      <h2>Properties</h2>
+      <div class="not-prose overflow-x-auto">
+        <table class="w-full text-sm border border-slate-200 rounded-lg overflow-hidden">
+          <thead class="bg-slate-50">
+            <tr>
+              <th class="text-left font-semibold text-slate-900 px-4 py-2 border-b border-slate-200">Property</th>
+              <th class="text-left font-semibold text-slate-900 px-4 py-2 border-b border-slate-200">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd:bg-white even:bg-slate-50">
+              <td class="px-4 py-2 border-b border-slate-100">Tier</td>
+              <td class="px-4 py-2 border-b border-slate-100">Free</td>
+            </tr>
+            <tr class="odd:bg-white even:bg-slate-50">
+              <td class="px-4 py-2 border-b border-slate-100">Category</td>
+              <td class="px-4 py-2 border-b border-slate-100">SaaS / startup (payroll &amp; HR)</td>
+            </tr>
+            <tr class="odd:bg-white even:bg-slate-50">
+              <td class="px-4 py-2 border-b border-slate-100">Body font</td>
+              <td class="px-4 py-2 border-b border-slate-100">General Sans (variable, weights 200–700), self-hosted via Astro's Fonts API</td>
+            </tr>
+            <tr class="odd:bg-white even:bg-slate-50">
+              <td class="px-4 py-2 border-b border-slate-100">Display font</td>
+              <td class="px-4 py-2 border-b border-slate-100">General Sans — same single family used for headings and body</td>
+            </tr>
+            <tr class="odd:bg-white even:bg-slate-50">
+              <td class="px-4 py-2">Brand accent / colors</td>
+              <td class="px-4 py-2">
+                Accent <code>#00acca</code>, heading/dark <code>#2b2b46</code>; pastel section backgrounds
+                <code>#fff3e6</code> (orange), <code>#e6fbff</code> (blue), <code>#e6fff0</code> (green),
+                <code>#f8ffe6</code> (yellow), <code>#e6e8ff</code> (purple), <code>#f4d4eb</code> (pink)
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="included-pages">Included pages</h2>
+      <ul>
+        <li><code>src/pages/index.astro</code> — homepage: Hero, Benefits, Features, UseCases, Testimonial, Integrations, Reviews, Pricing, FAQs, ClientLogos, ForTeam, Footer</li>
+        <li><code>src/pages/login.astro</code> — login form (work email + password) alongside the shared payroll/HR headline and trial-terms checklist panel</li>
+        <li><code>src/pages/signup.astro</code> — signup form (name, email, password, confirm password) using the same shared panel as the login page</li>
+      </ul>
+
+      <h2 id="different">What makes this template different</h2>
+      <ul>
+        <li>Scroll-collapsing header: <code>Layout.astro</code> uses GSAP to animate <code>.header</code> to zero height on scroll and pins <code>.navbar</code> with an <code>is-sticky</code> class, via an rAF-throttled scroll listener</li>
+        <li>One shared tab/accordion engine (<code>src/scripts/tabs.js</code>) drives the toggle behavior in <code>FAQs.astro</code>, <code>Benefits.astro</code>, and <code>Pricing.astro</code> from a single place</li>
+        <li>Client-review carousel in <code>Reviews.astro</code> built with Swiper, with custom prev/next arrow controls</li>
+        <li>Hand-built mobile nav drawer in <code>Navbar.astro</code>: transform-based slide-in panel, dimmed overlay, animated hamburger-to-X lines, and a body scroll lock — implemented independently of the source design's dormant Webflow IX2 attributes</li>
+        <li>Self-hosted variable font (General Sans, weights 200–700) loaded through Astro's built-in Fonts API (<code>astro:assets</code> <code>Font</code> component) rather than a CDN</li>
+        <li>Color-coded pastel section backgrounds (CSS custom properties in <code>theme.css</code>) used to visually separate Benefits/Features/Use-Cases blocks instead of borders or shadows</li>
+        <li>A <code>gulp</code> task (<code>npm run zip</code>) packages the theme into a distributable zip for marketplace submission</li>
+      </ul>
+
+      <h2 id="next">What's next</h2>
+      <ul>
+        <li>Site-wide config (brand name, logo, social links, contact info, app-store links, copyright): <code>src/data/site-config.js</code></li>
+        <li>Colors: <code>public/css/theme.css</code> — CSS custom properties under <code>:root</code> (<code>--color--accent</code>, <code>--color--dark</code>, and the pastel section colors)</li>
+        <li>Fonts: <code>astro.config.mjs</code> (the <code>fonts</code> array — currently one local General Sans variable font) plus the font file under <code>src/assets/fonts/</code></li>
+        <li>Section copy: <code>src/data/*.js</code> (<code>features.js</code>, <code>faqs.js</code>, <code>reviews.js</code>, <code>pricing.js</code>, <code>footer.js</code>, <code>benefits.js</code>, <code>use-cases.js</code>, <code>for-team.js</code>, <code>client-logos.js</code>) — each section component imports its matching data file</li>
+        <li>Add a new page: drop an <code>.astro</code> file into <code>src/pages/</code> (file-based routing), reusing <code>Navbar</code>/<code>Footer</code> from <code>src/components/</code> for consistent chrome</li>
+        <li>Add a new homepage section: build a component in <code>src/components/</code> and import/place it in <code>src/pages/index.astro</code></li>
+      </ul>
+    </main>
+
+    <!-- Right TOC column (desktop only) -->
+    <aside class="hidden lg:block w-56 shrink-0 px-6 py-10">
+      <nav class="sticky top-20 text-sm">
+        <p class="font-semibold text-slate-900 mb-2">On this page</p>
+        <ul class="space-y-1.5 text-slate-600 border-l border-slate-200">
+          <li><a href="#overview" class="block pl-3 -ml-px border-l-2 border-transparent hover:border-slate-400 hover:text-slate-900">Overview</a></li>
+          <li><a href="#included-pages" class="block pl-3 -ml-px border-l-2 border-transparent hover:border-slate-400 hover:text-slate-900">Included pages</a></li>
+          <li><a href="#different" class="block pl-3 -ml-px border-l-2 border-transparent hover:border-slate-400 hover:text-slate-900">What makes it different</a></li>
+          <li><a href="#next" class="block pl-3 -ml-px border-l-2 border-transparent hover:border-slate-400 hover:text-slate-900">What's next</a></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    if (menuToggle && sidebar && overlay) {
+      const openDrawer = () => {
+        sidebar.classList.remove('hidden');
+        sidebar.classList.add('is-open');
+        overlay.classList.add('is-open');
+        menuToggle.setAttribute('aria-expanded', 'true');
+      };
+      const closeDrawer = () => {
+        sidebar.classList.remove('is-open');
+        overlay.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        setTimeout(() => {
+          if (window.innerWidth < 768) sidebar.classList.add('hidden');
+        }, 250);
+      };
+
+      menuToggle.addEventListener('click', () => {
+        sidebar.classList.contains('is-open') ? closeDrawer() : openDrawer();
+      });
+      overlay.addEventListener('click', closeDrawer);
+    }
+  </script>
+</body>
+</html>
