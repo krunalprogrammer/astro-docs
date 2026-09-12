@@ -6,7 +6,7 @@
 <title>Saasdesk — Documentation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script>
   /* Apply saved theme before first paint to avoid a flash of the wrong theme. */
   (function () {
@@ -23,78 +23,78 @@
      TOKENS
      ====================================================================== */
   :root {
-    --bg: #FAFAF7;
+    --bg: #FFFFFF;
     --bg-raised: #FFFFFF;
-    --bg-inset: #F1EFE9;
-    --border: #E4E0D6;
-    --border-strong: #D3CEC0;
-    --text: #211F1A;
-    --text-secondary: #625D51;
-    --text-tertiary: #736E5F;
-    --accent: #0E6E62;
-    --accent-strong: #0A544B;
-    --accent-soft: #E3F1EE;
-    --accent-soft-border: #C4E1DA;
-    --on-accent: #FAFAF7;
-    --warning: #92600A;
-    --warning-soft: #FBF0DC;
-    --warning-soft-border: #EFD9A6;
-    --danger: #A23B33;
-    --danger-soft: #FBEAE7;
-    --danger-soft-border: #EDC1B8;
-    --success: #146B4F;
-    --success-soft: #E4F3EC;
-    --code-bg: #1B1B18;
-    --code-bg-raised: #232320;
-    --code-text: #EDEAE0;
-    --code-border: #33322C;
-    --code-comment: #928B76;
-    --code-string: #9ECBA8;
+    --bg-inset: #F3F5F6;
+    --border: #E2E7EE;
+    --border-strong: #D0D6E2;
+    --text: #0B0C0F;
+    --text-secondary: #5C6170;
+    --text-tertiary: #747A8B;
+    --accent: #133CF0;
+    --accent-strong: #284AE2;
+    --accent-soft: #EBF3FF;
+    --accent-soft-border: #E0EDFF;
+    --on-accent: #FFFFFF;
+    --warning: #B23901;
+    --warning-soft: #FAE0C7;
+    --warning-soft-border: #F0C08A;
+    --danger: #B30510;
+    --danger-soft: #FCD9DD;
+    --danger-soft-border: #F5B0B8;
+    --success: #077D56;
+    --success-soft: #BCF0D8;
+    --code-bg: #14161C;
+    --code-bg-raised: #1C1F27;
+    --code-text: #E9EBF1;
+    --code-border: #2C303B;
+    --code-comment: #868B99;
+    --code-string: #8FD6A8;
     --code-key: #E3B778;
-    --code-accent: #7FC5B8;
-    --shadow-sm: 0 1px 2px rgba(33, 31, 26, 0.06);
-    --shadow-md: 0 6px 20px -4px rgba(33, 31, 26, 0.14);
-    --shadow-lg: 0 16px 40px -8px rgba(33, 31, 26, 0.22);
+    --code-accent: #6FA8F0;
+    --shadow-sm: 0 1px 2px rgba(11, 12, 15, 0.06);
+    --shadow-md: 0 6px 20px -4px rgba(11, 12, 15, 0.14);
+    --shadow-lg: 0 16px 40px -8px rgba(11, 12, 15, 0.22);
     --header-h: 60px;
     --sidebar-w: 272px;
     --toc-w: 224px;
     --content-max: 46rem;
-    --font-display: 'Sora', ui-sans-serif, system-ui, sans-serif;
-    --font-body: 'Public Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
     --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
   }
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #17160F;
-      --bg-raised: #1E1D16;
-      --bg-inset: #24231A;
-      --border: #35331F;
-      --border-strong: #47441F;
-      --text: #EEEBDE;
-      --text-secondary: #ABA48E;
-      --text-tertiary: #948D74;
-      --accent: #4FBBA9;
-      --accent-strong: #6FD0C0;
-      --accent-soft: #1E3733;
-      --accent-soft-border: #2C544C;
-      --on-accent: #0D1512;
-      --warning: #E6B85C;
-      --warning-soft: #362A16;
+      --bg: #0F0F10;
+      --bg-raised: #161618;
+      --bg-inset: #1B1B1D;
+      --border: #222225;
+      --border-strong: #3E4046;
+      --text: #F5F6F8;
+      --text-secondary: #B8BAC2;
+      --text-tertiary: #8F929C;
+      --accent: #589DED;
+      --accent-strong: #4081E2;
+      --accent-soft: #141A25;
+      --accent-soft-border: #192846;
+      --on-accent: #0B0C0F;
+      --warning: #D8AC5A;
+      --warning-soft: #38331E;
       --warning-soft-border: #5A4726;
-      --danger: #E28E82;
-      --danger-soft: #3A211E;
+      --danger: #E86971;
+      --danger-soft: #3C2528;
       --danger-soft-border: #5C332C;
-      --success: #6FD0AA;
-      --success-soft: #1B3229;
-      --code-bg: #0F0F0C;
-      --code-bg-raised: #17160F;
-      --code-text: #EAE6D8;
-      --code-border: #33321F;
-      --code-comment: #928B76;
-      --code-string: #9ECBA8;
+      --success: #43B18D;
+      --success-soft: #21312A;
+      --code-bg: #0C0D11;
+      --code-bg-raised: #14161C;
+      --code-text: #E4E6EC;
+      --code-border: #262A34;
+      --code-comment: #868B99;
+      --code-string: #8FD6A8;
       --code-key: #E3B778;
-      --code-accent: #7FC5B8;
+      --code-accent: #6FA8F0;
       --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
       --shadow-md: 0 6px 20px -4px rgba(0, 0, 0, 0.5);
       --shadow-lg: 0 20px 48px -10px rgba(0, 0, 0, 0.6);
@@ -102,35 +102,35 @@
   }
 
   :root[data-theme="dark"] {
-    --bg: #17160F;
-    --bg-raised: #1E1D16;
-    --bg-inset: #24231A;
-    --border: #35331F;
-    --border-strong: #47441F;
-    --text: #EEEBDE;
-    --text-secondary: #ABA48E;
-    --text-tertiary: #948D74;
-    --accent: #4FBBA9;
-    --accent-strong: #6FD0C0;
-    --accent-soft: #1E3733;
-    --accent-soft-border: #2C544C;
-    --on-accent: #0D1512;
-    --warning: #E6B85C;
-    --warning-soft: #362A16;
+    --bg: #0F0F10;
+    --bg-raised: #161618;
+    --bg-inset: #1B1B1D;
+    --border: #222225;
+    --border-strong: #3E4046;
+    --text: #F5F6F8;
+    --text-secondary: #B8BAC2;
+    --text-tertiary: #8F929C;
+    --accent: #589DED;
+    --accent-strong: #4081E2;
+    --accent-soft: #141A25;
+    --accent-soft-border: #192846;
+    --on-accent: #0B0C0F;
+    --warning: #D8AC5A;
+    --warning-soft: #38331E;
     --warning-soft-border: #5A4726;
-    --danger: #E28E82;
-    --danger-soft: #3A211E;
+    --danger: #E86971;
+    --danger-soft: #3C2528;
     --danger-soft-border: #5C332C;
-    --success: #6FD0AA;
-    --success-soft: #1B3229;
-    --code-bg: #0F0F0C;
-    --code-bg-raised: #17160F;
-    --code-text: #EAE6D8;
-    --code-border: #33321F;
-    --code-comment: #928B76;
-    --code-string: #9ECBA8;
+    --success: #43B18D;
+    --success-soft: #21312A;
+    --code-bg: #0C0D11;
+    --code-bg-raised: #14161C;
+    --code-text: #E4E6EC;
+    --code-border: #262A34;
+    --code-comment: #868B99;
+    --code-string: #8FD6A8;
     --code-key: #E3B778;
-    --code-accent: #7FC5B8;
+    --code-accent: #6FA8F0;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
     --shadow-md: 0 6px 20px -4px rgba(0, 0, 0, 0.5);
     --shadow-lg: 0 20px 48px -10px rgba(0, 0, 0, 0.6);
@@ -165,6 +165,7 @@
     line-height: 1.25;
     text-wrap: balance;
     font-weight: 600;
+    letter-spacing: -0.02em;
   }
   p { margin: 0 0 1em; color: var(--text); }
   ul, ol { padding-left: 1.3em; }
@@ -394,9 +395,9 @@
     color: var(--accent); text-transform: uppercase; letter-spacing: 0.09em;
     margin-bottom: 0.6rem; display: block;
   }
-  .doc-section h2 { font-size: 1.7rem; margin: 0 0 0.6rem; scroll-margin-top: calc(var(--header-h) + 0.75rem); }
+  .doc-section h2 { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.03em; margin: 0 0 0.6rem; scroll-margin-top: calc(var(--header-h) + 0.75rem); }
   .section-lede { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 2rem; max-width: 42ch; }
-  .doc-section h3 { font-size: 1.18rem; margin: 2.2rem 0 0.75rem; scroll-margin-top: calc(var(--header-h) + 0.75rem); }
+  .doc-section h3 { font-size: 1.18rem; letter-spacing: -0.02em; margin: 2.2rem 0 0.75rem; scroll-margin-top: calc(var(--header-h) + 0.75rem); }
   .doc-section h4 { font-size: 1rem; margin: 1.5rem 0 0.5rem; }
   .doc-section p, .doc-section > ul, .doc-section > ol, .doc-section h3 + p { max-width: 62ch; }
 
