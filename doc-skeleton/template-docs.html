@@ -7,17 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<script>
-  /* Apply saved theme before first paint to avoid a flash of the wrong theme. */
-  (function () {
-    try {
-      var saved = localStorage.getItem('docs-theme');
-      if (saved === 'light' || saved === 'dark') {
-        document.documentElement.setAttribute('data-theme', saved);
-      }
-    } catch (e) {}
-  })();
-</script>
 <style>
   /* ======================================================================
      TOKENS
@@ -101,41 +90,6 @@
     }
   }
 
-  :root[data-theme="dark"] {
-    --bg: #0F0F10;
-    --bg-raised: #161618;
-    --bg-inset: #1B1B1D;
-    --border: #222225;
-    --border-strong: #3E4046;
-    --text: #F5F6F8;
-    --text-secondary: #B8BAC2;
-    --text-tertiary: #8F929C;
-    --accent: #3E7FE0;
-    --accent-strong: #2F63C2;
-    --accent-soft: #141A25;
-    --accent-soft-border: #192846;
-    --on-accent: #FFFFFF;
-    --warning: #D8AC5A;
-    --warning-soft: #38331E;
-    --warning-soft-border: #5A4726;
-    --danger: #E86971;
-    --danger-soft: #3C2528;
-    --danger-soft-border: #5C332C;
-    --success: #43B18D;
-    --success-soft: #21312A;
-    --code-bg: #282C34;
-    --code-bg-raised: #21252B;
-    --code-text: #ABB2BF;
-    --code-border: #3E4451;
-    --code-comment: #5C6370;
-    --code-string: #98C379;
-    --code-key: #C678DD;
-    --code-accent: #61AFEF;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
-    --shadow-md: 0 6px 20px -4px rgba(0, 0, 0, 0.5);
-    --shadow-lg: 0 20px 48px -10px rgba(0, 0, 0, 0.6);
-  }
-
   /* ======================================================================
      RESET & BASE
      ====================================================================== */
@@ -177,13 +131,7 @@
     border: 1px solid var(--border);
     padding: 0.1em 0.4em;
     border-radius: 5px;
-    color: var(--accent-strong);
-  }
-  :where([data-theme="dark"], :root:not([data-theme="light"])) code {
-    color: var(--accent-strong);
-  }
-  @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) code { color: var(--accent-strong); }
+    color: #61AFEF;
   }
   pre code { background: none; border: none; padding: 0; color: inherit; }
   table { border-collapse: collapse; width: 100%; }
@@ -286,22 +234,6 @@
     padding: 0.28em 0.6em; border-radius: 999px;
     white-space: nowrap;
   }
-  .icon-btn {
-    background: none; border: 1px solid var(--border); border-radius: 8px;
-    width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;
-    color: var(--text-secondary); cursor: pointer;
-  }
-  .icon-btn:hover { background: var(--bg-inset); color: var(--text); }
-  .icon-btn .icon-moon { display: none; }
-  :root[data-theme="dark"] .icon-btn .icon-sun,
-  :root:not([data-theme="light"]) .icon-btn .icon-sun { display: none; }
-  :root[data-theme="dark"] .icon-btn .icon-moon,
-  :root:not([data-theme="light"]) .icon-btn .icon-moon { display: block; }
-  @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) .icon-btn .icon-sun { display: block; }
-    :root:not([data-theme="dark"]) .icon-btn .icon-moon { display: none; }
-  }
-
   /* ======================================================================
      LAYOUT
      ====================================================================== */
@@ -703,13 +635,6 @@
   </button>
   <div class="header-actions">
     <span class="version-badge" id="version-badge">v1.0.0</span>
-    <button class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode">
-      <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-      <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
-    <a class="icon-btn" id="github-link" href="#" aria-label="View on GitHub" target="_blank" rel="noopener">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55v-2.15c-3.16.69-3.83-1.34-3.83-1.34-.52-1.32-1.26-1.67-1.26-1.67-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.52-.29-5.17-1.26-5.17-5.62 0-1.24.44-2.26 1.17-3.06-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 5.72 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.57.23 2.73.11 3.02.73.8 1.17 1.82 1.17 3.06 0 4.37-2.65 5.33-5.18 5.61.41.36.77 1.06.77 2.14v3.17c0 .3.21.66.79.55 4.5-1.51 7.76-5.76 7.76-10.78C23.02 5.24 18.27.5 12 .5z"/></svg>
-    </a>
   </div>
 </header>
 
@@ -1860,8 +1785,6 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
       footerCopy.innerHTML = '&copy; <span id="footer-year"></span> ' + escapeHtml(DOC_CONFIG.companyName) + '. All rights reserved.';
       setText('footer-year', String(new Date().getFullYear()));
     }
-    var gh = document.getElementById('github-link');
-    if (gh) gh.href = DOC_CONFIG.githubUrl || '#';
     var supportLink = document.getElementById('support-contact-link');
     if (supportLink) {
       var url = DOC_CONFIG.supportUrl && DOC_CONFIG.supportUrl !== '#' ? DOC_CONFIG.supportUrl : ('mailto:' + DOC_CONFIG.supportEmail);
@@ -1879,21 +1802,6 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
   }
 
   applyConfig();
-
-  /* ====================================================================
-     THEME TOGGLE
-     ==================================================================== */
-  var themeToggle = document.getElementById('theme-toggle');
-  function currentTheme() {
-    var stamped = document.documentElement.getAttribute('data-theme');
-    if (stamped) return stamped;
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  themeToggle.addEventListener('click', function () {
-    var next = currentTheme() === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    try { localStorage.setItem('docs-theme', next); } catch (e) {}
-  });
 
   /* ====================================================================
      MOBILE SIDEBAR DRAWER
