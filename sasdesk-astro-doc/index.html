@@ -35,7 +35,7 @@
     --success-soft: #BCF0D8;
     --code-bg: #282C34;
     --code-bg-raised: #21252B;
-    --code-text: #ABB2BF;
+    --code-text: #FFFFFF;
     --code-border: #3E4451;
     --code-comment: #5C6370;
     --code-string: #98C379;
@@ -78,7 +78,7 @@
       --success-soft: #21312A;
       --code-bg: #282C34;
       --code-bg-raised: #21252B;
-      --code-text: #ABB2BF;
+      --code-text: #FFFFFF;
       --code-border: #3E4451;
       --code-comment: #5C6370;
       --code-string: #98C379;
@@ -131,7 +131,7 @@
     border: 1px solid var(--border);
     padding: 0.1em 0.4em;
     border-radius: 5px;
-    color: #61AFEF;
+    color: #0F2DB8;
   }
   pre code { background: none; border: none; padding: 0; color: inherit; }
   table { border-collapse: collapse; width: 100%; }
@@ -183,19 +183,7 @@
     white-space: nowrap;
   }
   .header-brand:hover { text-decoration: none; }
-  .brand-mark {
-    width: 30px; height: 30px; border-radius: 8px;
-    background: linear-gradient(155deg, var(--accent), var(--accent-strong));
-    display: flex; align-items: center; justify-content: center;
-    color: var(--on-accent);
-    font-family: var(--font-mono); font-weight: 600; font-size: 0.85rem;
-    flex-shrink: 0;
-  }
   .header-brand-text { display: flex; flex-direction: column; line-height: 1.15; }
-  .header-brand-text small {
-    font-family: var(--font-body); font-weight: 500; font-size: 0.68rem;
-    color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em;
-  }
   .menu-toggle {
     display: none;
     background: none; border: 1px solid var(--border); border-radius: 8px;
@@ -264,7 +252,7 @@
     display: flex; align-items: baseline; gap: 0.55rem;
     padding: 0.45rem 0.6rem;
     border-radius: 7px;
-    color: var(--text-secondary);
+    color: var(--text);
     font-weight: 600; font-size: 0.86rem;
     scroll-margin-top: 5rem;
   }
@@ -279,11 +267,12 @@
   .sidebar-sub li { margin: 0; }
   .sidebar-sub a {
     display: block; padding: 0.28rem 0.5rem;
-    font-size: 0.81rem; color: var(--text-tertiary);
+    font-size: 0.81rem; color: var(--text);
     border-left: 1px solid var(--border);
     margin-left: 0.05rem;
+    border-radius: 0 7px 7px 0;
   }
-  .sidebar-sub a:hover { color: var(--text); text-decoration: none; }
+  .sidebar-sub a:hover { background: var(--bg-inset); color: var(--text); text-decoration: none; }
   .sidebar-sub a.active { color: var(--accent-strong); border-left-color: var(--accent); font-weight: 600; }
   .sidebar nav > ul { list-style: none; margin: 0; padding: 0; }
 
@@ -312,9 +301,10 @@
   .page-toc a {
     display: block; padding: 0.3rem 0 0.3rem 0.85rem; margin-left: -1px;
     border-left: 1px solid transparent;
-    font-size: 0.83rem; color: var(--text-secondary);
+    font-size: 0.83rem; color: var(--text);
+    border-radius: 0 7px 7px 0;
   }
-  .page-toc a:hover { color: var(--text); text-decoration: none; }
+  .page-toc a:hover { background: var(--bg-inset); color: var(--text); text-decoration: none; }
   .page-toc a.active { color: var(--accent-strong); border-left-color: var(--accent); font-weight: 600; }
 
   /* ======================================================================
@@ -415,7 +405,7 @@
   }
   .code-lang {
     font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase;
-    letter-spacing: 0.07em; color: var(--code-comment);
+    letter-spacing: 0.07em; color: #C678DD;
   }
   .code-filename { font-family: var(--font-mono); font-size: 0.76rem; color: var(--code-text); opacity: 0.85; }
   .copy-btn {
@@ -601,7 +591,6 @@
     .sidebar-backdrop.open { display: block; }
     .search-trigger span, .search-kbd { display: none; }
     .search-trigger { padding: 0.5rem; width: 38px; height: 38px; justify-content: center; }
-    .header-brand-text small { display: none; }
   }
 
   @media (max-width: 560px) {
@@ -622,10 +611,8 @@
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
   <a href="#top" class="header-brand" id="brand-link">
-    <span class="brand-mark" id="brand-mark" aria-hidden="true">T</span>
     <span class="header-brand-text">
-      <span id="brand-name">Saasdesk</span>
-      <small>Documentation</small>
+      <span id="brand-name">Saasdesk Astro Documentation</span>
     </span>
   </a>
   <button class="search-trigger" id="search-trigger" aria-label="Search documentation">
@@ -1725,9 +1712,6 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
   /* ---- Apply DOC_CONFIG to the DOM ---- */
   function applyConfig() {
     document.title = DOC_CONFIG.productName + ' — Documentation';
-    var brandMark = document.getElementById('brand-mark');
-    if (brandMark) brandMark.textContent = (DOC_CONFIG.productName || 'T').trim().charAt(0).toUpperCase();
-    setText('brand-name', DOC_CONFIG.productName);
     setText('welcome-product-name', DOC_CONFIG.productName);
     setText('version-badge', 'v' + DOC_CONFIG.productVersion);
     setText('footer-doc-version', DOC_CONFIG.productVersion);
