@@ -183,19 +183,7 @@
     white-space: nowrap;
   }
   .header-brand:hover { text-decoration: none; }
-  .brand-mark {
-    width: 30px; height: 30px; border-radius: 8px;
-    background: linear-gradient(155deg, var(--accent), var(--accent-strong));
-    display: flex; align-items: center; justify-content: center;
-    color: var(--on-accent);
-    font-family: var(--font-mono); font-weight: 600; font-size: 0.85rem;
-    flex-shrink: 0;
-  }
   .header-brand-text { display: flex; flex-direction: column; line-height: 1.15; }
-  .header-brand-text small {
-    font-family: var(--font-body); font-weight: 500; font-size: 0.68rem;
-    color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em;
-  }
   .menu-toggle {
     display: none;
     background: none; border: 1px solid var(--border); border-radius: 8px;
@@ -603,7 +591,6 @@
     .sidebar-backdrop.open { display: block; }
     .search-trigger span, .search-kbd { display: none; }
     .search-trigger { padding: 0.5rem; width: 38px; height: 38px; justify-content: center; }
-    .header-brand-text small { display: none; }
   }
 
   @media (max-width: 560px) {
@@ -624,10 +611,8 @@
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
   <a href="#top" class="header-brand" id="brand-link">
-    <span class="brand-mark" id="brand-mark" aria-hidden="true">P</span>
     <span class="header-brand-text">
-      <span id="brand-name">Paytime</span>
-      <small>Documentation</small>
+      <span id="brand-name">Paytime Astro Documentation</span>
     </span>
   </a>
   <button class="search-trigger" id="search-trigger" aria-label="Search documentation">
@@ -1749,9 +1734,6 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
   /* ---- Apply DOC_CONFIG to the DOM ---- */
   function applyConfig() {
     document.title = DOC_CONFIG.productName + ' — Documentation';
-    var brandMark = document.getElementById('brand-mark');
-    if (brandMark) brandMark.textContent = (DOC_CONFIG.productName || 'T').trim().charAt(0).toUpperCase();
-    setText('brand-name', DOC_CONFIG.productName);
     setText('welcome-product-name', DOC_CONFIG.productName);
     setText('version-badge', 'v' + DOC_CONFIG.productVersion);
     setText('footer-doc-version', DOC_CONFIG.productVersion);
